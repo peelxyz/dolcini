@@ -269,40 +269,52 @@
     /* ─── MENU ─── */
     #menu { background: var(--blue-pale); }
 
-    .menu-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-    @media (min-width: 500px) {
-      .menu-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (min-width: 820px) {
-      .menu-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    /* Category block */
+    .menu-category { margin-bottom: 3rem; }
+    .menu-category:last-child { margin-bottom: 0; }
+
+    .category-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 800;
+      color: var(--dark); margin-bottom: 1.25rem;
     }
 
-    /*
-     * Card = invisible (same bg as section).
-     * Only the white panel is a visible distinct element.
-     * Product floats on the section bg and overlaps the white panel below.
-     */
+    /* Horizontal scroll row — full-bleed on mobile */
+    .menu-scroll {
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      /* Negative margin so cards touch the section edge; padding restores alignment */
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+      padding: 0.5rem 1.5rem 1rem;
+    }
+    .menu-scroll::-webkit-scrollbar { display: none; }
+
+    /* Card — fixed width, snaps on scroll */
     .menu-card {
-      display: flex; flex-direction: column;
-      align-items: center;
+      flex: 0 0 260px;
+      display: flex; flex-direction: column; align-items: center;
+      scroll-snap-align: start;
       transition: transform 0.28s ease;
     }
+    @media (min-width: 480px)  { .menu-card { flex: 0 0 280px; } }
+    @media (min-width: 768px)  { .menu-card { flex: 0 0 300px; } }
     .menu-card:hover { transform: translateY(-8px); }
 
-    /* Full product image — sits on section bg, bleeds into white panel */
+    /* Product image — floats on section bg, bleeds into white panel */
     .menu-card-img {
       display: block;
-      width: 112%;
-      height: 380px;
+      width: 108%;
+      height: 320px;
       object-fit: contain;
       object-position: center bottom;
       position: relative; z-index: 2;
-      margin-bottom: -165px;
-      filter: drop-shadow(0 24px 36px rgba(0,0,0,0.2));
+      margin-bottom: -140px;
+      filter: drop-shadow(0 22px 32px rgba(0,0,0,0.2));
       transition: transform 0.3s ease;
     }
     .menu-card:hover .menu-card-img { transform: translateY(-10px); }
@@ -312,7 +324,7 @@
       width: 100%;
       background: var(--white);
       border-radius: 16px;
-      padding: 11rem 1.25rem 1.5rem;
+      padding: 9.5rem 1.25rem 1.5rem;
       position: relative; z-index: 1;
     }
 
@@ -572,44 +584,136 @@
       <h2 class="sec-title">Our Menu</h2>
       <p class="sec-sub">Handcrafted with love using traditional Italian recipes passed down through generations.</p>
     </div>
-    <div class="menu-grid">
+    <!-- ── Crostate ── -->
+    <div class="menu-category">
+      <h3 class="category-title">Crostate</h3>
+      <div class="menu-scroll">
 
-      <div class="menu-card fade-up">
-        <img src="torta01.png" class="menu-card-img" alt="Torta al Cioccolato">
-        <div class="menu-card-body">
-          <div class="menu-card-row">
-            <p class="menu-card-name">Torta al Cioccolato</p>
-            <button class="menu-info" aria-label="Info">i</button>
+        <div class="menu-card">
+          <img src="torta01.png" class="menu-card-img" alt="Crostata al Cioccolato">
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <p class="menu-card-name">Crostata al Cioccolato</p>
+              <button class="menu-info" aria-label="Info">i</button>
+            </div>
+            <p class="menu-card-desc">Dark chocolate ganache on a buttery shortcrust, topped with roasted hazelnuts and a swirl of salted caramel.</p>
+            <p class="menu-card-price">€ 4.50</p>
           </div>
-          <p class="menu-card-desc">Dark chocolate ganache on a buttery shortcrust, topped with roasted hazelnuts and a swirl of salted caramel.</p>
-          <p class="menu-card-price">€ 4.50</p>
         </div>
-      </div>
 
-      <div class="menu-card fade-up">
-        <img src="torta01.png" class="menu-card-img" alt="Torta della Nonna">
-        <div class="menu-card-body">
-          <div class="menu-card-row">
-            <p class="menu-card-name">Torta della Nonna</p>
-            <button class="menu-info" aria-label="Info">i</button>
+        <div class="menu-card">
+          <img src="torta01.png" class="menu-card-img" alt="Crostata alla Marmellata">
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <p class="menu-card-name">Crostata alla Marmellata</p>
+              <button class="menu-info" aria-label="Info">i</button>
+            </div>
+            <p class="menu-card-desc">Homemade apricot jam nestled in a crumbly golden pastry. Simple, fragrant, and deeply comforting.</p>
+            <p class="menu-card-price">€ 4.00</p>
           </div>
-          <p class="menu-card-desc">Grandma's recipe — silky vanilla custard in a crumbly pastry shell, finished with pine nuts and powdered sugar.</p>
-          <p class="menu-card-price">€ 4.50</p>
         </div>
-      </div>
 
-      <div class="menu-card fade-up">
-        <img src="torta01.png" class="menu-card-img" alt="Torta ai Frutti di Bosco">
-        <div class="menu-card-body">
-          <div class="menu-card-row">
-            <p class="menu-card-name">Torta ai Frutti di Bosco</p>
-            <button class="menu-info" aria-label="Info">i</button>
+        <div class="menu-card">
+          <img src="torta01.png" class="menu-card-img" alt="Crostata ai Frutti di Bosco">
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <p class="menu-card-name">Crostata ai Frutti di Bosco</p>
+              <button class="menu-info" aria-label="Info">i</button>
+            </div>
+            <p class="menu-card-desc">Wild berry compote on a light mascarpone cream, nestled in a golden almond crust. Sweet, tart, seasonal.</p>
+            <p class="menu-card-price">€ 4.50</p>
           </div>
-          <p class="menu-card-desc">Wild berry compote on a light mascarpone cream, nestled in a golden almond crust. Sweet, tart, and seasonal.</p>
-          <p class="menu-card-price">€ 4.50</p>
         </div>
-      </div>
 
+      </div>
+    </div>
+
+    <!-- ── Torte ── -->
+    <div class="menu-category">
+      <h3 class="category-title">Torte</h3>
+      <div class="menu-scroll">
+
+        <div class="menu-card">
+          <img src="torta01.png" class="menu-card-img" alt="Torta della Nonna">
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <p class="menu-card-name">Torta della Nonna</p>
+              <button class="menu-info" aria-label="Info">i</button>
+            </div>
+            <p class="menu-card-desc">Grandma's recipe — silky vanilla custard in a crumbly pastry shell, finished with pine nuts and powdered sugar.</p>
+            <p class="menu-card-price">€ 4.50</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="torta01.png" class="menu-card-img" alt="Torta Caprese">
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <p class="menu-card-name">Torta Caprese</p>
+              <button class="menu-info" aria-label="Info">i</button>
+            </div>
+            <p class="menu-card-desc">A flourless chocolate and almond cake from the island of Capri. Dense, fudgy, and naturally gluten-free.</p>
+            <p class="menu-card-price">€ 5.00</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="torta01.png" class="menu-card-img" alt="Torta di Ricotta">
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <p class="menu-card-name">Torta di Ricotta</p>
+              <button class="menu-info" aria-label="Info">i</button>
+            </div>
+            <p class="menu-card-desc">Light and pillowy ricotta cake with lemon zest and a dusting of icing sugar. A Sunday morning classic.</p>
+            <p class="menu-card-price">€ 4.50</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── Cremosi ── -->
+    <div class="menu-category">
+      <h3 class="category-title">Cremosi</h3>
+      <div class="menu-scroll">
+
+        <div class="menu-card">
+          <img src="torta01.png" class="menu-card-img" alt="Tiramisù">
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <p class="menu-card-name">Tiramisù</p>
+              <button class="menu-info" aria-label="Info">i</button>
+            </div>
+            <p class="menu-card-desc">Layers of espresso-soaked savoiardi and whipped mascarpone cream, dusted with bitter cocoa. The original.</p>
+            <p class="menu-card-price">€ 6.50</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="torta01.png" class="menu-card-img" alt="Panna Cotta">
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <p class="menu-card-name">Panna Cotta</p>
+              <button class="menu-info" aria-label="Info">i</button>
+            </div>
+            <p class="menu-card-desc">Silky vanilla cream that barely holds its shape, served with a tangy seasonal berry coulis.</p>
+            <p class="menu-card-price">€ 5.50</p>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <img src="torta01.png" class="menu-card-img" alt="Budino al Cioccolato">
+          <div class="menu-card-body">
+            <div class="menu-card-row">
+              <p class="menu-card-name">Budino al Cioccolato</p>
+              <button class="menu-info" aria-label="Info">i</button>
+            </div>
+            <p class="menu-card-desc">A velvety dark chocolate pudding, rich and intense, topped with a pinch of Maldon salt and olive oil.</p>
+            <p class="menu-card-price">€ 5.50</p>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
