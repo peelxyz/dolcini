@@ -296,23 +296,23 @@
     /* Full product image — sits on section bg, bleeds into white panel */
     .menu-card-img {
       display: block;
-      width: 82%;
-      height: 230px;
+      width: 95%;
+      height: 300px;
       object-fit: contain;
       object-position: center bottom;
       position: relative; z-index: 2;
-      margin-bottom: -72px;       /* how far the image overlaps the white panel */
-      filter: drop-shadow(0 16px 28px rgba(0,0,0,0.18));
+      margin-bottom: -120px;      /* deep overlap into the white panel */
+      filter: drop-shadow(0 20px 32px rgba(0,0,0,0.2));
       transition: transform 0.3s ease;
     }
-    .menu-card:hover .menu-card-img { transform: translateY(-7px); }
+    .menu-card:hover .menu-card-img { transform: translateY(-8px); }
 
     /* White info panel */
     .menu-card-body {
       width: 100%;
       background: var(--white);
       border-radius: 16px;
-      padding: 5.5rem 1.25rem 1.5rem; /* top padding covers the image overlap */
+      padding: 8.5rem 1.25rem 1.5rem; /* must exceed the overlap amount */
       position: relative; z-index: 1;
     }
 
