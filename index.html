@@ -284,6 +284,12 @@
       filter: drop-shadow(0 8px 16px rgba(0,0,0,0.1));
       transition: transform 0.3s ease;
     }
+    /* Real transparent PNGs: skip the multiply hack, let transparency do the work */
+    .menu-card-img img.cutout {
+      mix-blend-mode: normal;
+      filter: drop-shadow(0 12px 20px rgba(0,0,0,0.14));
+      height: 210px;
+    }
     .menu-card:hover .menu-card-img img {
       transform: scale(1.04) translateY(-4px);
     }
@@ -572,11 +578,11 @@
 
       <div class="menu-card fade-up">
         <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=600&q=85&auto=format&fit=crop&crop=center" alt="Torta della Nonna" loading="lazy">
+          <img src="torta01.png" alt="Torta al Cioccolato" class="cutout" loading="lazy">
         </div>
         <div class="menu-card-body">
           <span class="menu-tag">Casalingo</span>
-          <p class="menu-card-name">Torta della Nonna</p>
+          <p class="menu-card-name">Torta al Cioccolato</p>
           <p class="menu-card-price">€ 4.50</p>
         </div>
       </div>
