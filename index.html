@@ -316,14 +316,10 @@
       position: relative; z-index: 1;
     }
 
-    /* Category row: label left, info button right */
+    /* Info row: info button right */
     .menu-card-row {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 0.35rem;
-    }
-    .menu-tag {
-      font-size: 0.78rem; color: var(--mid); font-weight: 500;
-      letter-spacing: 0;
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 0.5rem; margin-bottom: 0.5rem;
     }
     .menu-info {
       width: 28px; height: 28px; border-radius: 50%;
@@ -332,16 +328,20 @@
       font-size: 0.78rem; font-weight: 700; font-style: italic;
       font-family: Georgia, serif;
       display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
+      flex-shrink: 0; margin-top: 2px;
     }
     .menu-card-name {
       font-family: 'Playfair Display', serif;
-      font-size: 1.45rem; font-weight: 800;
+      font-size: 1.6rem; font-weight: 800;
       color: var(--dark); line-height: 1.15;
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.45rem;
+    }
+    .menu-card-desc {
+      font-size: 0.82rem; color: var(--mid);
+      line-height: 1.55; margin-bottom: 0.85rem;
     }
     .menu-card-price {
-      font-size: 1.05rem; color: var(--dark); font-weight: 600;
+      font-size: 1.05rem; color: var(--dark); font-weight: 700;
     }
 
     /* ─── SERVICES ─── */
@@ -578,10 +578,10 @@
         <img src="torta01.png" class="menu-card-img" alt="Torta al Cioccolato">
         <div class="menu-card-body">
           <div class="menu-card-row">
-            <span class="menu-tag">Casalingo</span>
+            <p class="menu-card-name">Torta al Cioccolato</p>
             <button class="menu-info" aria-label="Info">i</button>
           </div>
-          <p class="menu-card-name">Torta al Cioccolato</p>
+          <p class="menu-card-desc">Dark chocolate ganache on a buttery shortcrust, topped with roasted hazelnuts and a swirl of salted caramel.</p>
           <p class="menu-card-price">€ 4.50</p>
         </div>
       </div>
@@ -590,10 +590,10 @@
         <img src="torta01.png" class="menu-card-img" alt="Torta della Nonna">
         <div class="menu-card-body">
           <div class="menu-card-row">
-            <span class="menu-tag">Tradizionale</span>
+            <p class="menu-card-name">Torta della Nonna</p>
             <button class="menu-info" aria-label="Info">i</button>
           </div>
-          <p class="menu-card-name">Torta della Nonna</p>
+          <p class="menu-card-desc">Grandma's recipe — silky vanilla custard in a crumbly pastry shell, finished with pine nuts and powdered sugar.</p>
           <p class="menu-card-price">€ 4.50</p>
         </div>
       </div>
@@ -602,10 +602,10 @@
         <img src="torta01.png" class="menu-card-img" alt="Torta ai Frutti di Bosco">
         <div class="menu-card-body">
           <div class="menu-card-row">
-            <span class="menu-tag">Stagionale</span>
+            <p class="menu-card-name">Torta ai Frutti di Bosco</p>
             <button class="menu-info" aria-label="Info">i</button>
           </div>
-          <p class="menu-card-name">Torta ai Frutti di Bosco</p>
+          <p class="menu-card-desc">Wild berry compote on a light mascarpone cream, nestled in a golden almond crust. Sweet, tart, and seasonal.</p>
           <p class="menu-card-price">€ 4.50</p>
         </div>
       </div>
